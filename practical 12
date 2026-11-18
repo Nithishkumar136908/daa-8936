@@ -1,1 +1,34 @@
+Travelling salesman problem
+
+from itertools import permutations
+
+n = int(input("Enter number of cities: "))
+
+print("Enter the cost matrix:")
+
+cost = []
+
+for i in range(n):
+    row = list(map(int, input().split()))
+    cost.append(row)
+
+cities = list(range(1, n))
+
+min_cost = float('inf')
+best_path = []
+
+for path in permutations(cities):
+    total = cost[0][path[0]]
+
+    for i in range(len(path) - 1):
+        total += cost[path[i]][path[i + 1]]
+
+    total += cost[path[-1]][0]
+
+    if total < min_cost:
+        min_cost = total
+        best_path = [0] + list(path) + [0]
+
+print("\nMinimum Cost:", min_cost)
+print("Shortest Path:", best_path)
 
