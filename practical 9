@@ -1,1 +1,47 @@
 
+def prims_algorithm(graph, n):
+    INF = float('inf')
+    visited = [False] * n
+    visited[0] = True
+    min_cost = 0
+
+    print("\nEdges in Minimum Spanning Tree:")
+
+    for _ in range(n - 1):
+        min_edge = INF
+        u = -1
+        v = -1
+
+        for i in range(n):
+            if visited[i]:
+                for j in range(n):
+                    if not visited[j] and graph[i][j] != 0:
+                        if graph[i][j] < min_edge:
+                            min_edge = graph[i][j]
+                            u = i
+                            v = j
+
+        if u == -1:
+            print("Graph is not connected!")
+            return
+
+        print(u, "-", v, ":", min_edge)
+
+        min_cost += min_edge
+        visited[v] = True
+
+    print("\nMinimum Cost of MST =", min_cost)
+
+
+n = int(input("Enter number of vertices: "))
+
+graph = []
+
+print("Enter the adjacency matrix:")
+
+for i in range(n):
+    row = list(map(int, input().split()))
+    graph.append(row)
+
+prims_algorithm(graph, n)
+
