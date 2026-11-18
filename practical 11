@@ -1,4 +1,4 @@
-Floyd-Warshal algorithm
+Floyd-Warshal algorithm:
 
 n = int(input("Enter number of vertices: "))
 
