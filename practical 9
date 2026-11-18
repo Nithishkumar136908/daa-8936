@@ -1,4 +1,4 @@
-
+Prims Algorithm:
 def prims_algorithm(graph, n):
     INF = float('inf')
     visited = [False] * n
