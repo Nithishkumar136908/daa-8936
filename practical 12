@@ -1,4 +1,4 @@
-Travelling salesman problem
+Travelling salesman problem:
 
 from itertools import permutations
 
